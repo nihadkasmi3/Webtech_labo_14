@@ -1,60 +1,28 @@
-let pokemon = [
-    "Bulbasaur",
-    "Ivysaur",
-    "Venusaur",
-    "Charmander",
-    "Charmeleon",
-    "Charizard",
-    "Squirtle",
-    "Wartortle",
-    "Blastoise",
-    "Caterpie",
-    "Metapod",
-    "Butterfree",
-    "Weedle",
-    "Kakuna",
-    "Beedrill",
-    "Pidgey",
-    "Pidgeotto",
-    "Pidgeot",
-    "Rattata",
-    "Raticate",
-    "Spearow",
+let spreadsheet = [
+    [100, 104, 105],
+    [144, 110, 109],
+    [105, 107, 111]
 ];
 
-let team = [];
+let sumRow1 = spreadsheet[0][0] + spreadsheet[0][1] + spreadsheet[0][2];
+console.log(sumRow1);
 
-for (let index = 0; index < pokemon.length; index++) {
-    console.log(`${index + 1}. ${pokemon[index]}`);
-}
+let sumRow2 = spreadsheet[1][0] + spreadsheet[1][1] + spreadsheet[1][2];
+console.log(sumRow2);
 
-let choice;
+let sumRow3 = spreadsheet[2][0] + spreadsheet[2][1] + spreadsheet[2][2];
+console.log(sumRow3);
 
-do {
-    choice = prompt(`Welke pokemon wil je in je team? [1-${pokemon.length}] (STOP om te stoppen): `);
+let total = 0;
 
-    if (choice !== "STOP") {
-        choice = parseInt(choice);
-
-        if (choice < 1 || choice > pokemon.length) {
-            console.log("Deze pokemon ken ik niet");
-        } else {
-            let chosenPokemon = pokemon[choice - 1];
-
-            let pokemonIndex = team.indexOf(chosenPokemon);
-
-            if (pokemonIndex !== -1) {
-                console.log("Deze pokemon zit al in je team");
-            } else {
-                team.push(chosenPokemon);
-            }
-        }
+for (let row = 0; row < spreadsheet.length; row++) {
+    for (let column = 0; column < spreadsheet[row].length; column++) {
+        total = total + spreadsheet[row][column];
     }
-
-} while (choice !== "STOP");
-
-console.log("Je gekozen pokemon zijn:");
-
-for (let index = 0; index < team.length; index++) {
-    console.log(`${index + 1}. ${team[index]}`);
 }
+
+console.log(`Som van de elementen in rij 1: ${sumRow1}`);
+console.log(`Som van de elementen in rij 2: ${sumRow2}`);
+console.log(`Som van de elementen in rij 3: ${sumRow3}`);
+
+console.log(`Totaal van de hele tabel: ${total}`);
