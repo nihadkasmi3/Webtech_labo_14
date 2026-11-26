@@ -1,9 +1,15 @@
-fetch("person.json")
+fetch("todos.json")
     .then(response => response.json())
-    .then(person => {
-        console.log(`${person.firstname} ${person.lastname}`);
+    .then(todos => {
+        let completedTodos = [];
 
-        for (let index = 0; index < person.hobbies.length; index++) {
-            console.log(person.hobbies[index]);
+        for (let index = 0; index < todos.length; index++) {
+            if (todos[index].completed === true) {
+                completedTodos.push(todos[index]);
+            }
+        }
+
+        for (let index = 0; index < completedTodos.length; index++) {
+            console.log(completedTodos[index].title);
         }
     });
