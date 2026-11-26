@@ -1,15 +1,23 @@
-fetch("todos.json")
-    .then(response => response.json())
-    .then(todos => {
-        let completedTodos = [];
+import animalData from "dieren.json" with { type: "json" };
 
-        for (let index = 0; index < todos.length; index++) {
-            if (todos[index].completed === true) {
-                completedTodos.push(todos[index]);
-            }
-        }
+function getAnimalsList(animals) {
+    let animalNames = [];
 
-        for (let index = 0; index < completedTodos.length; index++) {
-            console.log(completedTodos[index].title);
-        }
-    });
+    for (let index = 0; index < animals.length; index++) {
+        animalNames.push(animals[index].naam);
+    }
+
+    return animalNames;
+}
+
+let animalNames = getAnimalsList(animalData);
+
+for (let index = 0; index < animalNames.length; index++) {
+    console.log(`${index + 1}. ${animalNames[index]}`);
+}
+
+let choice = parseInt(prompt(`Kies een dier (1-${animalNames.length}): `));
+
+let chosenAnimal = animalData[choice - 1];
+
+console.log(chosenAnimal);
