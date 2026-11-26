@@ -1,24 +1,33 @@
-const grades = [];
-let total = 0;
-let failed = 0;
-let grade;
+const input = "brood,melk,kaas,appels";
+const shoppingList = input.split(",");
+shoppingList.length;
 
-do {
- grade = parseInt(prompt(`Geef je punt in: `));
- if (grade !== -1) {
-    grades.push(grade);
+console.log(`Je lijst bevat ${shoppingList.length} boodschappen`);
+
+shoppingList.push(`boter`);
+shoppingList.unshift(`koffie`);
+console.log(shoppingList.join(" | "));
+const removedItem = shoppingList.pop();
+console.log(`${removedItem} valt weg (laatste boodschap verwijderd)`);
+
+const firstRemovedItem = shoppingList.shift();
+console.log(`${firstRemovedItem} hebben we nog in huis(eerste boodschap verwijderd.) `);
+
+const cheeseIndex = shoppingList.indexOf("kaas");
+shoppingList[cheeseIndex] = "hummus";
+console.log(`Kaas stond op index ${cheeseIndex} en is nu hummus`);
+
+
+const chipsIndex = shoppingList.indexOf("chips");
+if (chipsIndex === -1) {
+    console.log("Chips staat niet op de boodschappenlijst.");
 }
-} while (grade !== -1);
 
-for (let grade of grades) {
-    total = total + grade;
-    if (grade < 10) {
-        failed++
-    }
-}
-let average = total / grades.length;
-let percentage = (average / 20) * 100;
 
-console.log(`Het gemiddelde: ${average}`);
-console.log(`Percentage: ${percentage}`);
-console.log(`Aantal gebuisde vakken: ${failed}`);
+console.log(shoppingList[10]);
+
+shoppingList.splice(1, 2);
+let deletedItems = shoppingList.splice(1, 2);
+console.log(`Verwijderde met splice(): ${deletedItems}`);
+
+console.log(`${shoppingList.join("|")}`);
