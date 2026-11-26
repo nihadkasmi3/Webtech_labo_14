@@ -1,28 +1,19 @@
-let spreadsheet = [
-    [100, 104, 105],
-    [144, 110, 109],
-    [105, 107, 111]
-];
-
-let sumRow1 = spreadsheet[0][0] + spreadsheet[0][1] + spreadsheet[0][2];
-console.log(sumRow1);
-
-let sumRow2 = spreadsheet[1][0] + spreadsheet[1][1] + spreadsheet[1][2];
-console.log(sumRow2);
-
-let sumRow3 = spreadsheet[2][0] + spreadsheet[2][1] + spreadsheet[2][2];
-console.log(sumRow3);
+let spaghetti = {
+    naam: "Spaghetti bolognese",
+    beschrijving: "Spaghetti met tomatensaus en gehakt",
+    personen: 4,
+    ingredienten: [
+        { naam: "Spaghetti", hoeveelheid: "400 gram", prijs: 2.50 },
+        { naam: "Gehakt", hoeveelheid: "300 gram", prijs: 5.00 },
+        { naam: "Tomatensaus", hoeveelheid: "1 pot", prijs: 2.00 },
+        { naam: "Ui", hoeveelheid: "1 stuk", prijs: 0.50 }
+    ]
+};
 
 let total = 0;
 
-for (let row = 0; row < spreadsheet.length; row++) {
-    for (let column = 0; column < spreadsheet[row].length; column++) {
-        total = total + spreadsheet[row][column];
-    }
+for (let index = 0; index < spaghetti.ingredienten.length; index++) {
+    total = total + spaghetti.ingredienten[index].prijs;
 }
-
-console.log(`Som van de elementen in rij 1: ${sumRow1}`);
-console.log(`Som van de elementen in rij 2: ${sumRow2}`);
-console.log(`Som van de elementen in rij 3: ${sumRow3}`);
-
-console.log(`Totaal van de hele tabel: ${total}`);
+console.log(`${spaghetti.naam}`);
+console.log(`Totaal prijs van de ingrediënten: ${total.toFixed(2)}`);
