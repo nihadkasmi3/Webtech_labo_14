@@ -1,33 +1,60 @@
-const input = "brood,melk,kaas,appels";
-const shoppingList = input.split(",");
-shoppingList.length;
+let pokemon = [
+    "Bulbasaur",
+    "Ivysaur",
+    "Venusaur",
+    "Charmander",
+    "Charmeleon",
+    "Charizard",
+    "Squirtle",
+    "Wartortle",
+    "Blastoise",
+    "Caterpie",
+    "Metapod",
+    "Butterfree",
+    "Weedle",
+    "Kakuna",
+    "Beedrill",
+    "Pidgey",
+    "Pidgeotto",
+    "Pidgeot",
+    "Rattata",
+    "Raticate",
+    "Spearow",
+];
 
-console.log(`Je lijst bevat ${shoppingList.length} boodschappen`);
+let team = [];
 
-shoppingList.push(`boter`);
-shoppingList.unshift(`koffie`);
-console.log(shoppingList.join(" | "));
-const removedItem = shoppingList.pop();
-console.log(`${removedItem} valt weg (laatste boodschap verwijderd)`);
-
-const firstRemovedItem = shoppingList.shift();
-console.log(`${firstRemovedItem} hebben we nog in huis(eerste boodschap verwijderd.) `);
-
-const cheeseIndex = shoppingList.indexOf("kaas");
-shoppingList[cheeseIndex] = "hummus";
-console.log(`Kaas stond op index ${cheeseIndex} en is nu hummus`);
-
-
-const chipsIndex = shoppingList.indexOf("chips");
-if (chipsIndex === -1) {
-    console.log("Chips staat niet op de boodschappenlijst.");
+for (let index = 0; index < pokemon.length; index++) {
+    console.log(`${index + 1}. ${pokemon[index]}`);
 }
 
+let choice;
 
-console.log(shoppingList[10]);
+do {
+    choice = prompt(`Welke pokemon wil je in je team? [1-${pokemon.length}] (STOP om te stoppen): `);
 
-shoppingList.splice(1, 2);
-let deletedItems = shoppingList.splice(1, 2);
-console.log(`Verwijderde met splice(): ${deletedItems}`);
+    if (choice !== "STOP") {
+        choice = parseInt(choice);
 
-console.log(`${shoppingList.join("|")}`);
+        if (choice < 1 || choice > pokemon.length) {
+            console.log("Deze pokemon ken ik niet");
+        } else {
+            let chosenPokemon = pokemon[choice - 1];
+
+            let pokemonIndex = team.indexOf(chosenPokemon);
+
+            if (pokemonIndex !== -1) {
+                console.log("Deze pokemon zit al in je team");
+            } else {
+                team.push(chosenPokemon);
+            }
+        }
+    }
+
+} while (choice !== "STOP");
+
+console.log("Je gekozen pokemon zijn:");
+
+for (let index = 0; index < team.length; index++) {
+    console.log(`${index + 1}. ${team[index]}`);
+}
