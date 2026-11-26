@@ -1,6 +1,14 @@
-const grades = [16,12,16,7,17,14,9,8,18,12];
+const grades = [];
 let total = 0;
 let failed = 0;
+let grade;
+
+do {
+ grade = parseInt(prompt(`Geef je punt in: `));
+ if (grade !== -1) {
+    grades.push(grade);
+}
+} while (grade !== -1);
 
 for (let grade of grades) {
     total = total + grade;
