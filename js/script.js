@@ -1,7 +1,17 @@
-let numbers = [1, 2, 3, 4, 5, 6];
-let sum = 0;
+let firstNames = [`Emma`, `Liam`, `Sophie`, `Noah`, `Fatima`];
+let lastNames = [`Pietersen`, `de Vries`, `Bakker`, `Legrand`, `Er razzouki`];
 
-for (let index = 0; index < numbers.length; index++) {
-     sum = sum + numbers[index];
+firstNames.length
+lastNames.length
+
+if (firstNames.length !== lastNames.length) {
+    console.log(`Het aantal voornamen en achternamen komt niet overeen.`)
 }
-console.log(`De som van de getallen is: ${sum}`);
+else {
+    for (let index = 0; index < firstNames.length; index++) {
+     const firstName = firstNames[index];
+     const lastName = lastNames[index];
+
+     console.log(`${firstName} ${lastName}`);
+}
+}
